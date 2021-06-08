@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: welcome
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /spring/*
+        backend:
+          serviceName: welcome-spring
+          servicePort: 80
+      - path: /summer/*
+        backend:
+          serviceName: welcome-summer
+          servicePort: 80

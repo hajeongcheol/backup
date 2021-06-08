@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: welcome-spring
+  labels:
+    app: welcome
+    release: spring
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: welcome
+      release: spring
+  template:
+    metadata:
+      labels:
+        app: welcome
+        release: spring
+    spec:
+      containers:
+      - name: welcome
+        image: hajeongcheol/welcome:spring
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: welcome-summer
+  labels:
+    app: welcome
+    release: summer 
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: welcome
+      release: summer 
+  template:
+    metadata:
+      labels:
+        app: welcome
+        release: summer
+    spec:
+      containers:
+      - name: welcome
+        image: hajeongcheol/welcome:summer
